@@ -4,6 +4,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
 "5424
 [v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"5436
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
 "8977
 [v _BRG16 `Vb ~T0 @X0 0 e@32195 ]
 "10021
@@ -3627,12 +3629,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 79: TRISB = 0;
 "79
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 81: SPBRG=31;
+[; ;main.c: 81: SPBRG = 8;
 "81
-[e = _SPBRG -> -> 31 `i `uc ]
-[; ;main.c: 84: BRG16 = 0;
+[e = _SPBRG -> -> 8 `i `uc ]
+[; ;main.c: 82: SPBRGH = 2;
+"82
+[e = _SPBRGH -> -> 2 `i `uc ]
+[; ;main.c: 84: BRG16 = 1;
 "84
-[e = _BRG16 -> -> 0 `i `b ]
+[e = _BRG16 -> -> 1 `i `b ]
 [; ;main.c: 85: SPEN = 1;
 "85
 [e = _SPEN -> -> 1 `i `b ]
@@ -3648,9 +3653,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 91: SENDB=0;
 "91
 [e = _SENDB -> -> 0 `i `b ]
-[; ;main.c: 92: BRGH=0;
+[; ;main.c: 92: BRGH=1;
 "92
-[e = _BRGH -> -> 0 `i `b ]
+[e = _BRGH -> -> 1 `i `b ]
 [; ;main.c: 94: TXCKP=0;
 "94
 [e = _TXCKP -> -> 0 `i `b ]

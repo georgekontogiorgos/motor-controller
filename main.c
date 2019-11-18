@@ -78,10 +78,10 @@ void main(void) {
     
     TRISB = 0;
     
-    SPBRG=31;
-    
+    SPBRG = 8;
+    SPBRGH = 2;    
 
-    BRG16 = 0; 
+    BRG16 = 1; 
     SPEN = 1;
    
     //Setting TXSTA
@@ -89,7 +89,7 @@ void main(void) {
     TXEN=1;       
     SYNC=0;
     SENDB=0;
-    BRGH=0;    
+    BRGH=1;    
     
     TXCKP=0;
     
