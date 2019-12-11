@@ -1,67 +1,5 @@
 
-# 1 "main.c"
-
-
-# 21 "config.h"
-#pragma config PLLDIV = 1
-#pragma config CPUDIV = OSC1_PLL2
-#pragma config USBDIV = 1
-
-
-#pragma config FOSC = HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOR = ON
-#pragma config BORV = 3
-#pragma config VREGEN = OFF
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config CCP2MX = ON
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = OFF
-
-
-#pragma config STVREN = OFF
-#pragma config LVP = OFF
-#pragma config ICPRT = OFF
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-
-
-#pragma config EBTRB = OFF
+# 1 "usart.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4870,135 +4808,6 @@ extern __nonreentrant void _delay3(unsigned char);
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
-typedef unsigned short wchar_t;
-
-# 15
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 53
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-# 86
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-
 # 14 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
 extern void * memmove(void *, const void *, size_t);
@@ -5046,170 +4855,112 @@ void uart_rx_isr(void);
 
 void uart_tx_isr(void);
 
-# 24 "shreg.h"
-void send_sr(short int * buffer);
+# 13 "usart.c"
+char tx_buffer[100];
+char rx_buffer[100];
 
-# 23 "main.c"
-int pwm = 0;
-int pwm_counter = 0;
+unsigned int tx_buffer_pointer = 0;
+unsigned int rx_buffer_pointer = 0;
 
-int motor_1_ia;
+int tx_transmission_end = 1;
+int rx_buffer_full = 0;
 
-void configure_tmr2();
-
-void configure_pwm();
-
-interrupt void IRS()
+void uart_set_tx(void)
 {
-uart_rx_isr();
-uart_tx_isr();
 
-if(PIR1bits.ADIF)
+TXSTAbits.TX9 = 0;
+TXSTAbits.TXEN = 1;
+TXSTAbits.SYNC = 0;
+TXSTAbits.SENDB = 0;
+TXSTAbits.BRGH = 1;
+}
+
+void uart_set_rx(void)
 {
-motor_1_ia = ADRES;
-ADCON0bits.GO = 1;
-PIR1bits.ADIF = 0;
+
+RCSTAbits.SPEN = 1;
+RCSTAbits.RX9 = 0;
+RCSTAbits.SREN = 0;
+RCSTAbits.CREN = 1;
+RCSTAbits.ADDEN = 0;
+}
+
+void uart_set_baud_rate(void)
+{
+SPBRG=8;
+SPBRGH=2;
+
+
+BAUDCONbits.RXDTP = 0;
+BAUDCONbits.TXCKP = 0;
+BAUDCONbits.BRG16 = 1;
+}
+
+void uart_send_string(char * message)
+{
+strcpy(tx_buffer,message);
+tx_transmission_end = 0;
+PIE1bits.TXIE = 1;
+while(!tx_transmission_end)
+{
+
+}
+memset(tx_buffer, 0, 100);
+}
+
+void uart_read_buffer(char * message)
+{
+if(rx_buffer_full)
+{
+
+strcpy(message,rx_buffer);
+
+
+memset(rx_buffer, 0, 100);
+
+
+rx_buffer_full = 0;
 }
 }
 
-void main(void)
+void uart_rx_isr(void)
 {
-TRISB = 0;
-TRISD = 0;
-TRISC = 0;
+if(PIR1bits.RCIF)
+{
+if(!rx_buffer_full)
+{
 
-uart_set_tx();
-uart_set_rx();
-uart_set_baud_rate();
+rx_buffer[rx_buffer_pointer] = RCREG;
 
-# 59
-PIE1bits.RCIE = 1;
-PIE1bits.ADIE = 1;
-
-
+if(rx_buffer[rx_buffer_pointer] != '\n')
+{
+rx_buffer_pointer++;
+}
+else
+{
+rx_buffer_pointer = 0;
+rx_buffer_full = 1;
+}
+}
 PIR1bits.RCIF = 0;
+}
+}
+
+void uart_tx_isr(void)
+{
+if(PIR1bits.TXIF)
+{
+if(tx_buffer[tx_buffer_pointer] == '\0')
+{
+tx_transmission_end = 1;
+tx_buffer_pointer = 0;
+PIE1bits.TXIE = 0;
 PIR1bits.TXIF = 0;
-PIR1bits.ADIF = 0;
-INTCONbits.TMR0IF = 0;
-
-INTCONbits.GIE = 1;
-INTCONbits.PEIE = 1;
-
-INTCONbits.TMR0IE = 0;
-
-INTCON2bits.TMR0IP = 0;
-
-# 79
-ADCON0bits.CHS=0;
-
-ADCON0bits.ADON = 1;
-
-
-ADCON1bits.VCFG = 3;
-ADCON1bits.PCFG = 11;
-
-
-
-ADCON2bits.ADFM = 1;
-ADCON2bits.ACQT = 7;
-ADCON2bits.ADCS = 6;
-
-uart_send_string("MOTOR CONTROLLER\n");
-uart_send_string("Starting system...\n");
-
-char raw_command[100];
-char * command;
-char * arg1;
-char * arg2;
-
-short int L298_inputs[]={0, 0, 0, 0, 0, 0, 0, 0};
-
-
-send_sr(L298_inputs);
-LATBbits.LATB3 = 0;
-
-configure_pwm();
-configure_tmr2();
-
-CCPR1L = 0;
-
-ADCON0bits.GO = 1;
-
-while(1)
-{
-memset(raw_command, 0, 100);
-
-uart_read_buffer(raw_command);
-
-command = strtok(raw_command, " \n");
-arg1 = strtok((0), " \n");
-arg2 = strtok((0), " \n");
-
-if(strcmp(command,"idn") == 0)
-{
-uart_send_string("Controller - V0.0.0\n");
 }
-
-if(strcmp(command,"en") == 0)
+else
 {
-if(strcmp(arg2,"1") == 0)
-{
-L298_inputs[7]=1;
-send_sr(L298_inputs);
-uart_send_string("M1 IN1 enable\n");
-}
-if(strcmp(arg2,"2") == 0)
-{
-L298_inputs[6]=1;
-send_sr(L298_inputs);
-uart_send_string("M1 IN2 enable\n");
+TXREG = tx_buffer[tx_buffer_pointer];
+tx_buffer_pointer++;
 }
 }
-
-if(strcmp(command,"dis") == 0)
-{
-if(strcmp(arg2,"1") == 0)
-{
-L298_inputs[7]=0;
-send_sr(L298_inputs);
-uart_send_string("M1 IN1 disable\n");
-}
-if(strcmp(arg2,"2") == 0)
-{
-L298_inputs[6]=0;
-send_sr(L298_inputs);
-uart_send_string("M1 IN2 disable\n");
-}
-}
-
-if(strcmp(command,"pwm") == 0)
-{
-uart_send_string("pwm enabled\n");
-CCPR1L=atoi(arg2);
-}
-
-if(strcmp(command,"imeas") == 0)
-{
-if(strcmp(arg2,"1") == 0)
-{
-char send_current[6];
-sprintf(send_current, "%0.3f A\n", (float)motor_1_ia*0.00207779255);
-uart_send_string(send_current);
-}
-}
-}
-return;
-}
-
-void configure_tmr2()
-{
-PR2 = 1023;
-T2CONbits.TOUTPS = 0;
-T2CONbits.TMR2ON = 1;
-T2CONbits.T2CKPS = 0;
-}
-
-void configure_pwm()
-{
-CCP1CONbits.CCP1M = 12;
 }
